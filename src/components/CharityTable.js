@@ -6,9 +6,9 @@ import {
     LoadingContainer
 } from "../cbglobals"
 
-function CharityTable({ skip, minIncome }) {
+function CharityTable({ skip, minIncome, maxIncome }) {
 
-    const { loading, error, data } = useQuery(GET_CHARITIES, { variables: { skip: skip, minIncome: minIncome} });
+    const { loading, error, data } = useQuery(GET_CHARITIES, { variables: { skip: skip, minIncome: minIncome, maxIncome: maxIncome} });
 
     if(error) {
         console.error(error);

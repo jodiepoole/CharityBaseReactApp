@@ -1,5 +1,6 @@
 export const en = {
     charityBaseReactApp: "CharityBase React App",
+    description: "Search charites using the maximum and minimum income filters below. The charities are sorted by the \"Income\" column in ascending order.",
     minimumIncome: "Minimum Income",
     maximumIncome: "Maximum Income",
     charityNameColumn: "Charity Name",
@@ -12,6 +13,6 @@ export const en = {
     grantsTotalColumn: "Total Income from Grants",
     percentageOfGrantsAsIncomeColumn: "Percentage of Grants as Income",
     loading: "Loading",
-    selection: (x, y, z) => "Showing First " + x + " to " + y + " Charaties out of " + z, 
+    selection: (x, y, z) => "Showing First " + x + " to " + y + " Charities out of " + z, 
     grant: (title, amount, currency, funder) => title + ": " + amount + " " + currency + " awared from " + funder + "\r\n",
 };

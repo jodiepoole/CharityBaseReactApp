@@ -16,7 +16,7 @@ function CharityBaseSelection() {
     const [maxIncome, setMaxIncome] = useState(1000);
 
     const checkValidMinMaxIncome = (value) => {
-        return !isNaN(value) && value > 0 && value < 1000000000000;
+        return !isNaN(value) && value >= 0 && value <= 1000000000000;
     }
 
     const minIncomeChange = (e) => {
@@ -43,6 +43,7 @@ function CharityBaseSelection() {
         <div>
                 <h1>{en.charityBaseReactApp}</h1>
                 <br/>
+                <p>{en.description}</p>
                 <div className="charitySelector">
                     <p>{en.minimumIncome}:</p>
                     <input type="number" 
@@ -138,7 +139,7 @@ function CharityBaseSelectionTable({minIncome, maxIncome}) {
                             <th>{en.grantsTotalColumn}</th>
                             <th>{en.percentageOfGrantsAsIncomeColumn}</th>
                         </tr>
-                        <CharityTable skip={skip} minIncome={minIncome}/>
+                        <CharityTable skip={skip} minIncome={minIncome} maxIncome={maxIncome}/>
                     </tbody>
                 </table>
             </div>

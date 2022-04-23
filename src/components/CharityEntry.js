@@ -18,7 +18,7 @@ function CharityEntry({row}) {
             <td>{validateValue(row.contact.phone)}</td>
             <td>{getCurrency(row.finances[0].income)}</td>
             <td>{getCurrency(row.finances[0].spending)}</td>
-            <td>{getGrants(row.funding.grants)}</td>
+            <td style={{"min-width" : "35%"}}>{getGrants(row.funding.grants)}</td>
             <td>{getCurrency(getGrantsTotal(row.funding.grants))}</td>
             <td>{percentageOfGrantsAsIncome(row.finances[0].income, row.funding.grants)}</td>
         </tr>
