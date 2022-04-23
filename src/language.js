@@ -1,0 +1,17 @@
+export const en = {
+    charityBaseReactApp: "CharityBase React App",
+    minimumIncome: "Minimum Income",
+    maximumIncome: "Maximum Income",
+    charityNameColumn: "Charity Name",
+    addressColumn: "Address",
+    emailColumn: "E-mail",
+    telephoneColumn: "Telephone Number",
+    incomeColumn: "Income",
+    spendingColumn: "Spending",
+    grantsColumn: "Grants",
+    grantsTotalColumn: "Total Income from Grants",
+    percentageOfGrantsAsIncomeColumn: "Percentage of Grants as Income",
+    loading: "Loading",
+    selection: (x, y, z) => "Showing First " + x + " to " + y + " Charaties out of " + z, 
+    grant: (title, amount, currency, funder) => title + ": " + amount + " " + currency + " awared from " + funder + "\r\n",
+};
