@@ -13,6 +13,6 @@ export const en = {
     grantsTotalColumn: "Total Income from Grants",
     percentageOfGrantsAsIncomeColumn: "Percentage of Grants as Income",
     loading: "Loading",
-    selection: (x, y, z) => "Showing First " + x + " to " + y + " Charities out of " + z, 
+    selection: (x, y, z) => "Showing " + x + " to " + y + " Charity out of " + z, 
     grant: (title, amount, currency, funder) => title + ": " + amount + " " + currency + " awared from " + funder + "\r\n",
 };

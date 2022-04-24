@@ -7,7 +7,8 @@ import { useEffect, useState } from "react"
 import {
     INCREMENT_VALUE,
     DATA_CAP,
-    LoadingContainer
+    LoadingContainer,
+    getOrdinalNumber
 } from "../cbglobals"
 
 function CharityBaseSelection() {
@@ -41,38 +42,37 @@ function CharityBaseSelection() {
 
     return (
         <div>
-                <h1>{en.charityBaseReactApp}</h1>
-                <br/>
-                <p>{en.description}</p>
-                <div className="charitySelector">
-                    <p>{en.minimumIncome}:</p>
-                    <input type="number" 
-                        min={0} 
-                        max={1000000000000} 
-                        defaultValue={minIncome} 
-                        key={minIncome}
-                        onBlur={(e) => {minIncomeChange(e)}}
-                        onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
-                    />
-                </div>
-                <br/>
-                <div className="charitySelector">
-                    <p>{en.maximumIncome}:</p>
-                    <input 
-                        type="number" 
-                        min={0} 
-                        max={1000000000000} 
-                        defaultValue={maxIncome}
-                        key={maxIncome} 
-                        onBlur={(e) => {maxIncomeChange(e)}}
-                        onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
-                    />
-                </div>
-                <br/>
-                
+            <h1>{en.charityBaseReactApp}</h1>
+            <br/>
+            <p>{en.description}</p>
+            <div className="charitySelector">
+                <p>{en.minimumIncome}:</p>
+                <input type="number" 
+                    min={0} 
+                    max={1000000000000} 
+                    defaultValue={minIncome} 
+                    key={minIncome}
+                    onBlur={(e) => {minIncomeChange(e)}}
+                    onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+                />
+            </div>
+            <br/>
+            <div className="charitySelector">
+                <p>{en.maximumIncome}:</p>
+                <input 
+                    type="number" 
+                    min={0} 
+                    max={1000000000000} 
+                    defaultValue={maxIncome}
+                    key={maxIncome} 
+                    onBlur={(e) => {maxIncomeChange(e)}}
+                    onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+                />
+            </div>
+            <br/>
             <CharityBaseSelectionTable minIncome={minIncome} maxIncome={maxIncome}/>
         </div>
-        )
+    );
 
 }
 
@@ -121,7 +121,7 @@ function CharityBaseSelectionTable({minIncome, maxIncome}) {
                 <div className="charitySelector">
                     <button disabled={firstPage} onClick={() => {skipChange(-INCREMENT_VALUE * 10)}}>{"<<"}</button>
                     <button disabled={firstPage} onClick={() => {skipChange(-INCREMENT_VALUE)}}>{"<"}</button>
-                    <p>{en.selection(skip, (lastPage ? count : (skip + INCREMENT_VALUE)), count)}</p>
+                    <p>{en.selection(getOrdinalNumber(skip + 1), getOrdinalNumber(lastPage ? count : (skip + INCREMENT_VALUE)), count)}</p>
                     <button disabled={lastPage} onClick={() => {skipChange(INCREMENT_VALUE)}}>{">"}</button>
                     <button disabled={lastPage} onClick={() => {skipChange(INCREMENT_VALUE * 10)}}>{">>"}</button>
                 </div>

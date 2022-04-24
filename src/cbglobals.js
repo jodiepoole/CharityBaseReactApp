@@ -12,6 +12,19 @@ export function LoadingContainer() {
     )
 }
 
+export const getOrdinalNumber = (value) => {
+    switch(value % 10) {
+        case 1:
+            return value + "st";
+        case 2: 
+            return value + "nd";
+        case 3:
+            return value + "rd"
+        default:
+            return value + "th"
+    }
+}   
+
 export const getAddress = (contact) => {
     if(contact.address.length === 0 || !contact.postcode) {
         return "N/A"
