@@ -31,6 +31,7 @@ query getCharities($skip: Int, $minIncome: Float, $maxIncome: Float) {
                     currency
                     }
                 }
+                website
             }
         }
     }
