@@ -32,7 +32,7 @@ div.charitySelector p {
     max-width: 40%;
 }
 
-div.charitySelector input{
+div.charitySelector input {
     display: inline-block;
     padding: 4px;
     width: 20%;
@@ -59,13 +59,6 @@ table.charityTable td, table.charityTable th {
     padding: 3px 4px;
 }
 
-table.charityTable th {
-    background: #000000;
-    color: #FFFFFF;
-    height: 40px;
-    max-height: 40px;
-}
-
 table.charityTable tbody td {
     font-size: 14px;
 }
@@ -75,28 +68,25 @@ table.charityTable td:nth-child(even) {
 }
 
 table.charityTable th {
-    border-bottom: 4px solid #333333;
-}
-
-table.charityTable th th {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
     border-left: 2px solid #333333;
+    border-bottom: 4px solid #333333;
+    background: #000000;
+    color: #FFFFFF;
+    height: 40px;
+    max-height: 40px;
+}
+
+table.charityTable tr {
+    border-bottom: 3px solid #333333;
 }
 
 table.charityTable th th:first-child {
     border-left: none;
 }
-  
-table.charityTable tfoot {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333333;
-    background: #FFFFFF;
-    border-top: 4px solid #333333;
-}
 
-table.charityTable tfoot td {
+table.charityTable td {
     font-size: 16px;
 }
