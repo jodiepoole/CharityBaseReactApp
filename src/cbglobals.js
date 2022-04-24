@@ -25,6 +25,15 @@ export const getOrdinalNumber = (value) => {
     }
 }   
 
+export const checkValidWebsite = (website) => {
+    if(website) {
+        const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+        return website.match(regex) !== null;
+    } else {
+        return false;
+    }
+}
+
 export const getAddress = (contact) => {
     if(contact.address.length === 0 || !contact.postcode) {
         return "N/A"

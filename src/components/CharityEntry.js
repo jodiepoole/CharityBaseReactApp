@@ -5,7 +5,8 @@ import {
     getCurrency,
     getGrants,
     getGrantsTotal,
-    percentageOfGrantsAsIncome
+    percentageOfGrantsAsIncome,
+    checkValidWebsite
 } from "../cbglobals"
 
 function CharityEntry({row}) {
@@ -13,7 +14,7 @@ function CharityEntry({row}) {
     return(
         <tr>
             <td>
-                <a href={row.website}>
+                <a href={checkValidWebsite(row.website) ? row.website : null}>
                     {row.names[0].value}
                 </a>
             </td>
