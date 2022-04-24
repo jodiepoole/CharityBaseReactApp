@@ -32,7 +32,7 @@ function CharityEntry({row}) {
             <td>
                 {getCurrency(row.finances[0].spending)}
             </td>
-            <td style={{"min-width" : "35%"}}>
+            <td style={{"minWidth" : "35%"}}>
                 {getGrants(row.funding.grants)}
             </td>
             <td>
