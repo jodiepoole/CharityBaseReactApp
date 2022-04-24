@@ -101,49 +101,60 @@ function CharityBaseSelectionTable({minIncome, maxIncome}) {
 
     if(data) {
         const count = data.CHC.getCharities.count >= DATA_CAP ? DATA_CAP : data.CHC.getCharities.count;
-        const onePage = count < INCREMENT_VALUE;
-        const firstPage = onePage || skip === 0;
-        const lastPage = onePage || count <= (skip + INCREMENT_VALUE);
 
-        const skipChange = (value) => {
-            const newValue = skip + value;
-            if(newValue <= 0) {
-                setSkip(0);
-            } else if (newValue >= count) {
-                setSkip(count - INCREMENT_VALUE);
-            } else {
-                setSkip(newValue);
+        if(count > 0) {
+            const onePage = count < INCREMENT_VALUE;
+            const firstPage = onePage || skip === 0;
+            const lastPage = onePage || count <= (skip + INCREMENT_VALUE);
+
+            const skipChange = (value) => {
+                const newValue = skip + value;
+                if(newValue <= 0) {
+                    setSkip(0);
+                } else if (newValue >= count) {
+                    setSkip(count - INCREMENT_VALUE);
+                } else {
+                    setSkip(newValue);
+                }
             }
-        }
 
-        return (
-            <div>
-                <div className="charitySelector">
-                    <button disabled={firstPage} onClick={() => {skipChange(-INCREMENT_VALUE * 10)}}>{"<<"}</button>
-                    <button disabled={firstPage} onClick={() => {skipChange(-INCREMENT_VALUE)}}>{"<"}</button>
-                    <p>{en.selection(getOrdinalNumber(skip + 1), getOrdinalNumber(lastPage ? count : (skip + INCREMENT_VALUE)), count)}</p>
-                    <button disabled={lastPage} onClick={() => {skipChange(INCREMENT_VALUE)}}>{">"}</button>
-                    <button disabled={lastPage} onClick={() => {skipChange(INCREMENT_VALUE * 10)}}>{">>"}</button>
+            return (
+                <div>
+                    <div className="charitySelector">
+                        <button disabled={firstPage} onClick={() => {skipChange(-INCREMENT_VALUE * 10)}}>{"<<"}</button>
+                        <button disabled={firstPage} onClick={() => {skipChange(-INCREMENT_VALUE)}}>{"<"}</button>
+                        <p>{en.selection(getOrdinalNumber(skip + 1), getOrdinalNumber(lastPage ? count : (skip + INCREMENT_VALUE)), count)}</p>
+                        <button disabled={lastPage} onClick={() => {skipChange(INCREMENT_VALUE)}}>{">"}</button>
+                        <button disabled={lastPage} onClick={() => {skipChange(INCREMENT_VALUE * 10)}}>{">>"}</button>
+                    </div>
+                    
+                    <table className="charityTable">
+                        <tbody>
+                            <tr>
+                                <th>{en.charityNameColumn}</th>
+                                <th>{en.addressColumn}</th>
+                                <th>{en.emailColumn}</th>
+                                <th>{en.telephoneColumn}</th>
+                                <th>{en.incomeColumn}</th>
+                                <th>{en.spendingColumn}</th>
+                                <th>{en.grantsColumn}</th>
+                                <th>{en.grantsTotalColumn}</th>
+                                <th>{en.percentageOfGrantsAsIncomeColumn}</th>
+                            </tr>
+                            <CharityTable skip={skip} minIncome={minIncome} maxIncome={maxIncome}/>
+                        </tbody>
+                    </table>
                 </div>
-                
-                <table className="charityTable">
-                    <tbody>
-                        <tr>
-                            <th>{en.charityNameColumn}</th>
-                            <th>{en.addressColumn}</th>
-                            <th>{en.emailColumn}</th>
-                            <th>{en.telephoneColumn}</th>
-                            <th>{en.incomeColumn}</th>
-                            <th>{en.spendingColumn}</th>
-                            <th>{en.grantsColumn}</th>
-                            <th>{en.grantsTotalColumn}</th>
-                            <th>{en.percentageOfGrantsAsIncomeColumn}</th>
-                        </tr>
-                        <CharityTable skip={skip} minIncome={minIncome} maxIncome={maxIncome}/>
-                    </tbody>
-                </table>
-            </div>
-        )
+            );
+        } else {
+            return (
+                <div>
+                    <h1>
+                        {en.noCharatiesFound}
+                    </h1>
+                </div>
+            );
+        }
     }
 }
 
