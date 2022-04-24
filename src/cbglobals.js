@@ -50,6 +50,7 @@ export const validateValue = (value) => {
     }
 };
 
+//function rounds to 2 decimal places
 export const round = (value) => {
     return +(Math.round(value + "e+2") + "e-2");
 };
@@ -73,9 +74,9 @@ export const getGrants = (grants) => {
 
     let grantOutput = "";
     grants.forEach(grant => {
-        grantOutput += en.grant(grant.title, grant.amountAwarded, grant.currency, grant.funder.name)
+        grantOutput += en.grant(grant.title, grant.amountAwarded, grant.currency, grant.funder.name) + "\n"
     });
-    return grantOutput;
+    return grantOutput.replace(/\n+$/, '');;
 };
 
 export const getGrantsTotal = (grants) => {

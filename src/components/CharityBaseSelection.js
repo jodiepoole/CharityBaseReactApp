@@ -100,13 +100,15 @@ function CharityBaseSelectionTable({minIncome, maxIncome}) {
     }
 
     if(data) {
+        //limit data displayed to the DATA_CAP variable
         const count = data.CHC.getCharities.count >= DATA_CAP ? DATA_CAP : data.CHC.getCharities.count;
-
         if(count > 0) {
+            //check if any buttons need to be disabled
             const onePage = count < INCREMENT_VALUE;
             const firstPage = onePage || skip === 0;
             const lastPage = onePage || count <= (skip + INCREMENT_VALUE);
 
+            //validate changing page in the table
             const skipChange = (value) => {
                 const newValue = skip + value;
                 if(newValue <= 0) {
@@ -147,10 +149,11 @@ function CharityBaseSelectionTable({minIncome, maxIncome}) {
                 </div>
             );
         } else {
+            //inform user if there are no charities found from query
             return (
                 <div>
                     <h1>
-                        {en.noCharatiesFound}
+                        {en.noCharitiesFound}
                     </h1>
                 </div>
             );

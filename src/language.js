@@ -13,7 +13,7 @@ export const en = {
     grantsTotalColumn: "Total Income from Grants",
     percentageOfGrantsAsIncomeColumn: "Percentage of Grants as Income",
     loading: "Loading",
-    noCharatiesFound: "No Charaties Found with current min  / max income",
+    noCharitiesFound: "No Charities Found with current min  / max income",
     selection: (x, y, z) => "Showing " + x + " to " + y + " Charity out of " + z, 
     grant: (title, amount, currency, funder) => title + ": " + amount + " " + currency + " awared from " + funder + "\r\n",
 };

@@ -1,5 +1,6 @@
 import { gql } from "apollo-boost"
 
+//query fetches all relevant information from charities between min and max income variables
 export const GET_CHARITIES = gql `
 query getCharities($skip: Int, $minIncome: Float, $maxIncome: Float) {
     CHC {
@@ -37,7 +38,7 @@ query getCharities($skip: Int, $minIncome: Float, $maxIncome: Float) {
     }
 }
 `
-
+//query fetches the number of charities between min and max income variables
 export const GET_CHARITIES_COUNT = gql `
 query getCharities($minIncome: Float, $maxIncome: Float){
     CHC {
